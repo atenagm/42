@@ -22,10 +22,20 @@ void ft_putchar(char c)
 // }
 void ft_putnbr(int nbr)
 {
-  int i,ll;
+  int i;
+  int ll;
+  int o;
+  int u;
+  int numb[20];
 
+  o = 0;
+  u = 0;
+  if (nbr<0)
+  {
+    nbr = nbr * -1;
+    ft_putchar('-');
+  }
   ll = nbr;
-  int k,o,u = 0,numb[20];
   if (nbr > 9)
   {
     while (nbr>9)
@@ -33,7 +43,6 @@ void ft_putnbr(int nbr)
       nbr = nbr /10;
     }
   }
-//  if (nbr <= 9 && nbr >= 0)
     ft_putchar(nbr + '0');
     while(ll>9)
     {
@@ -53,7 +62,7 @@ void ft_putnbr(int nbr)
 
 int main (void)
 {
-  ft_putnbr(53210);
+  ft_putnbr(-53210);
   ft_putchar('\n');
   return 0;
 }
