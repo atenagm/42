@@ -8,10 +8,11 @@ OBJ_FILES 	= $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC_FILES))
 
 all: $(OBJ_FILES)
 	ar rcs libft.a $^
-exe: $(NAME)
+e: $(NAME)
 
 $(NAME): $(OBJ_FILES)
 	$(CC) -o $@ $^
+	./$(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c -o $@ $<

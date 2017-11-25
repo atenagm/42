@@ -6,7 +6,7 @@
 /*   By: vmiron <vmiron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/19 16:21:16 by vmiron            #+#    #+#             */
-/*   Updated: 2017/11/23 20:12:50 by vmiron           ###   ########.fr       */
+/*   Updated: 2017/11/25 11:24:14 by vmiron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,12 @@
 
 int   main(void)
 {
-  char src[40] = "1234567890s234567890";
-  char dest[100];
-  char *ll;
-  ll = dest;
+    char *src = "a";
+	char dst1[30];
+	size_t max = 1;
 
-   ft_memccpy(dest, src, 's', 20);
-  // ll = ll + 1;
-  int len;
-  int len2;
-  len = strlen(dest);
-  len2 = strlen(src);
+	memset(dst1, 'B', sizeof(dst1));
+	strncpy(dst1, src, max);
 
-  printf("Final Dest : %s\n", dest);
-  printf("Final SRC : %s\n", src);
-  printf("Final Dest : %d\n", len);
-  printf("Final SRC : %d\n", len2);
-  return(0);
+    printf("|%s|\n",dst1);
 }

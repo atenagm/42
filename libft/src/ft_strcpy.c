@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vmiron <vmiron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/24 13:04:14 by vmiron            #+#    #+#             */
-/*   Updated: 2017/11/24 17:49:32 by vmiron           ###   ########.fr       */
+/*   Created: 2017/11/24 20:46:57 by vmiron            #+#    #+#             */
+/*   Updated: 2017/11/24 21:05:22 by vmiron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-void *ft_memmove(void *dest, const void *src, size_t n)
+char *ft_strcpy(char *dest, const char *src)
 {
-    char *destin;
-    char *source;
-    destin = (char *)dest;
-    source = (char *)src;
+    char *destionation;
+    int i;
 
-    if (source < destin)
-	{
-	       while (n > 0)
-           {
-                n--;
-			    destin[n] = source[n];
-            }
+    i = 0;
+    destionation = dest;
+    while(src[i] != '\0')
+    {
+        dest[i] = src[i];
+        i++;
     }
-    else
-    ft_memcpy(destin,source,n);
-    return destin;
+    dest[i] = '\0';
+    return (dest);
 }

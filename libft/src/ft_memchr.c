@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vmiron <vmiron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/24 13:04:14 by vmiron            #+#    #+#             */
-/*   Updated: 2017/11/24 17:49:32 by vmiron           ###   ########.fr       */
+/*   Created: 2017/11/24 14:29:38 by vmiron            #+#    #+#             */
+/*   Updated: 2017/11/24 15:08:03 by vmiron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-void *ft_memmove(void *dest, const void *src, size_t n)
-{
-    char *destin;
-    char *source;
-    destin = (char *)dest;
-    source = (char *)src;
 
-    if (source < destin)
-	{
-	       while (n > 0)
-           {
-                n--;
-			    destin[n] = source[n];
-            }
+void *ft_memchr(const void *s, int c, size_t n)
+{
+    unsigned char *source;
+    unsigned char ci;
+    int i;
+
+    i = 0;
+    source = (unsigned char *)s;
+    ci = (unsigned char)c;
+
+    while(n > 0)
+    {
+        n--;
+        if (source[i] == ci)
+            return source + i;
+        i++;
     }
-    else
-    ft_memcpy(destin,source,n);
-    return destin;
+    return (NULL);
 }
