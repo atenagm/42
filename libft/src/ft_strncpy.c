@@ -6,7 +6,7 @@
 /*   By: vmiron <vmiron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 21:06:18 by vmiron            #+#    #+#             */
-/*   Updated: 2017/11/25 11:30:35 by vmiron           ###   ########.fr       */
+/*   Updated: 2017/11/25 12:12:37 by vmiron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,20 @@
 
 char *ft_strncpy(char *dest, const char *src, size_t n)
 {
-    char    *pnt;
-    int     i;
+    size_t i;
 
-    pnt = (char *)src;
     i = 0;
-    while(n > 0)
+
+    while (src[i] != '\0' && i < n)
     {
-        if (pnt[i] != '\0')
-            dest[i] = pnt[i];
-        else
-            dest[i] = '\0';
+        dest[i] = src[i];
         i++;
-        n--;
+    }
+    
+    while (i < n)
+    {
+        dest[i] = '\0';
+        i++;
     }
     return (dest);
 }

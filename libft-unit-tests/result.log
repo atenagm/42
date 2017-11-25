@@ -1,65 +1,109 @@
-ft_strncpy:    [OK] [OK] [OK] [FAILED] [OK] [FAILED] [FAILED] [OK] [OK] [OK] [OK] 
-[fail]: your strncpy does not work with an empty string
+ft_memset:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_bzero:      [OK] [OK] [OK] [OK] 
+ft_memcpy:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_memccpy:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_memmove:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_memchr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_memcmp:     [OK] [OK] [OK] [FAILED] [FAILED] [OK] [OK] [OK] [OK] [OK] 
+[fail]: your memcmp does not work with basic input
 Test code:
-	char *src = "";
-	char dst1[30];
-	char dst2[30];
-	size_t max = 29;
+	uint8_t *s1 = (uint8_t *)"\xff\xaa\xde\xffMACOSX\xff";
 
-	memset(dst1, 'B', sizeof(dst1));
-	memset(dst2, 'B', sizeof(dst2));
-	strncpy(dst1, src, max);
-	ft_strncpy(dst2, src, max);
-	if (memcmp(dst1, dst2, 29))
-	{
-		exit(TEST_FAILED);
-	}
-	exit(TEST_SUCCESS);
-
-Diffs:
-     strncpy: ||
-  ft_strncpy: ||
-
-[fail]: your strncpy does not fill with \0 the rest of the dest buffer
-Test code:
-	char *src = "stars";
-	char dst1[50];
-	char dst2[50];
-	size_t max = 50;
-
-	memset(dst1, 'B', sizeof(dst1));
-	memset(dst2, 'B', sizeof(dst2));
-	strncpy(dst1, src, max);
-	ft_strncpy(dst2, src, max);
-	if (memcmp(dst1, dst2, max))
-	{
-		exit(TEST_FAILED);
-	}
-	exit(TEST_SUCCESS);
-
-Diffs:
-     strncpy: |stars|
-  ft_strncpy: |stars|
-
-[fail]: your strncpy put the bad number of \0 at the end of the string
-Test code:
-	char *src = "len\0AAAAAAAAAAAA";
-	char dst1[] = "BBBBBBBBBBBBBBBBBBBB";
-	char dst2[] = "BBBBBBBBBBBBBBBBBBBB";
-	size_t len = strlen(dst1);
-
-	strncpy(dst1, src, 7);
-	ft_strncpy(dst2, src, 7);
-	for (size_t i = 0; i < len; i++)
-		if (dst1[i] != dst2[i])
-		{
-			for (size_t it = 0; it < len; it++)
-			for (size_t it = 0; it < len; it++)
-			exit(TEST_FAILED);
-		}
+	uint8_t *s2 = (uint8_t *)"\xff\xaa\xde\x02";
+	size_t size = 8;
+	if (memcmp(s1, s2, size) == ft_memcmp(s1, s2, size))
 		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);
 
 Diffs:
-     strncpy: |\x6c\x65\x6e\x00\x00\x00\x00\x42\x42\x42\x42\x42\x42\x42\x42\x42\x42\x42\x42\x42|
-  ft_strncpy: |\x6c\x65\x6e\x00\x41\x41\x41\x42\x42\x42\x42\x42\x42\x42\x42\x42\x42\x42\x42\x42|
+      memcmp: |64768|
+   ft_memcmp: |253|
 
+[fail]: your memcmp does not cast the memory in unsigned char
+Test code:
+	uint8_t *s1 = (uint8_t *)"\xff\xaa\xde\200";
+
+	uint8_t *s2 = (uint8_t *)"\xff\xaa\xde\0";
+	size_t size = 8;
+	if (memcmp(s1, s2, size) == ft_memcmp(s1, s2, size))
+		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);
+
+Diffs:
+      memcmp: |32768|
+   ft_memcmp: |128|
+
+ft_strlen:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strdup:     [MISSING]
+ft_strcpy:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strncpy:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strcat:     [MISSING]
+ft_strncat:    [MISSING]
+ft_strlcat:    [MISSING]
+ft_strchr:     [MISSING]
+ft_strrchr:    [MISSING]
+ft_strstr:     [MISSING]
+ft_strnstr:    [MISSING]
+ft_strcmp:     [MISSING]
+ft_strncmp:    [MISSING]
+ft_atoi:       [MISSING]
+ft_isalpha:    [FAILED] 
+[fail]: your isalpha just doesn't work, REALLY ?!
+Test code:
+	int i;
+
+	i = -1;
+	while (i < 530)
+	{
+		if (ft_isalpha(i) != ((*__ctype_b_loc ())[(int) ((i))] & (unsigned short int) _ISalpha))
+			exit(TEST_FAILED);
+		i++;
+	}
+	exit(TEST_SUCCESS);
+
+Diffs:
+
+
+ft_isdigit:    [MISSING]
+ft_isalnum:    [MISSING]
+ft_isascii:    [MISSING]
+ft_isprint:    [MISSING]
+ft_toupper:    [MISSING]
+ft_tolower:    [MISSING]
+ft_memalloc:   [MISSING]
+ft_memdel:     [MISSING]
+ft_strnew:     [MISSING]
+ft_strdel:     [MISSING]
+ft_strclr:     [CRASH] {protected}
+[crash]: your strclr does not set to 0 the string
+Test code:
+	char b[] = "strclr test !\r\n";
+	char n[0xF0];
+	size_t size = strlen(b);
+
+	memset(n, 0, size);
+	ft_strclr(b);
+	if (!memcmp(b, n, size))
+		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);
+
+
+ft_striter:    [MISSING]
+ft_striteri:   [MISSING]
+ft_strmap:     [MISSING]
+ft_strmapi:    [MISSING]
+ft_strequ:     [MISSING]
+ft_strnequ:    [MISSING]
+ft_strsub:     [MISSING]
+ft_strjoin:    [MISSING]
+ft_strtrim:    [MISSING]
+ft_strsplit:   [MISSING]
+ft_itoa:       [MISSING]
+ft_putchar:    [OK] [OK] [OK] 
+ft_putstr:     [OK] [OK] {protected}
+ft_putendl:    [OK] [OK] {protected}
+ft_putnbr:     [OK] [OK] [OK] [OK] [OK] 
+ft_putchar_fd: [MISSING]
+ft_putstr_fd:  [MISSING]
+ft_putendl_fd: [MISSING]
+ft_putnbr_fd:  [MISSING]
