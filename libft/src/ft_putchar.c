@@ -6,13 +6,13 @@
 /*   By: vmiron <vmiron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 22:30:40 by vmiron            #+#    #+#             */
-/*   Updated: 2017/11/19 19:07:24 by vmiron           ###   ########.fr       */
+/*   Updated: 2017/11/28 18:13:51 by vmiron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void ft_putchar(unsigned char c)
+void	ft_putchar(unsigned char c)
 {
-    write(1, &c, 1);
+	write(1, &c, 1);
 }
