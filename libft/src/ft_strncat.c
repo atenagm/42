@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vmiron <vmiron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/19 16:21:16 by vmiron            #+#    #+#             */
-/*   Updated: 2017/11/27 00:46:27 by vmiron           ###   ########.fr       */
+/*   Created: 2017/11/26 21:36:24 by vmiron            #+#    #+#             */
+/*   Updated: 2017/11/27 00:57:02 by vmiron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-int main(void)
-{
-    char *str = "n\0AAAAAAAAAAAAAAAAA";
-	char buff1[20] = "bbbbb";
-	char buff2[20] = "bbbbbbbbb";
-	size_t max = 5;
 
-	strncat(buff1, str, max);
-	ft_strncat(buff2, str, max);
-    printf("Final destination string : |%s|\n", buff1);
-    printf("Final destination string : |%s|\n", buff2);
-   return(0);
+char *ft_strncat(char *dest, const char *src, size_t n)
+{
+    int i;
+    size_t j;
+
+    i = 0;
+    j = 0;
+
+    while (dest[i] != '\0')
+        i++;
+
+    while(j < n && src[j] != '\0')
+    {
+        dest[i] = src[j];
+        i++;
+        j++;
+    }
+    dest[i] = '\0';
+    return (dest);
 }

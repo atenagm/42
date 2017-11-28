@@ -34,11 +34,11 @@ Diffs:
    ft_memcmp: |128|
 
 ft_strlen:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
-ft_strdup:     [MISSING]
+ft_strdup:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strcpy:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strncpy:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
-ft_strcat:     [MISSING]
-ft_strncat:    [MISSING]
+ft_strcat:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strncat:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strlcat:    [MISSING]
 ft_strchr:     [MISSING]
 ft_strrchr:    [MISSING]
