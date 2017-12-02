@@ -6,7 +6,7 @@
 /*   By: vmiron <vmiron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/19 16:21:16 by vmiron            #+#    #+#             */
-/*   Updated: 2017/11/28 18:59:05 by vmiron           ###   ########.fr       */
+/*   Updated: 2017/12/02 19:04:16 by vmiron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 #include <ctype.h>
 int main(void)
 {
-  char dest[10];
-  char src[5] = "lalaa";
-  ft_strlcat(dest,src,5);
+
+  char str[5] = "libft";
+  char dest[5] = "casre";
+
+  ft_strlcat(dest,str,3);
+  printf("%s",dest);
 
   return (0);
 }
