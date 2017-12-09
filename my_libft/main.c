@@ -5,21 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vmiron <vmiron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/19 16:21:16 by vmiron            #+#    #+#             */
-/*   Updated: 2017/12/03 14:35:14 by vmiron           ###   ########.fr       */
+/*   Created: 2017/12/09 13:38:51 by vmiron            #+#    #+#             */
+/*   Updated: 2017/12/09 16:52:11 by vmiron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "../libft.h"
-#include <ctype.h>
-int main(void)
+int	main(void)
 {
+   char str[50];
 
-  char str[5] = "libft";
-  char dest[5] = "casre";
+   strcpy(str,"This is string.h library function");
+   puts(str);
 
-  ft_strlcat(dest,str,3);
-  printf("%s",dest);
+   memset(str,'$',7);
+   puts(str);
 
-  return (0);
+    char stri[50];
+
+   strcpy(stri,"This is string.h library function");
+   puts(stri);
+
+   ft_memset(stri,'$',7);
+   puts(stri);
+	return (0);
 }
