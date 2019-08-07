@@ -6,17 +6,17 @@
 /*   By: vmiron <vmiron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 12:46:27 by vmiron            #+#    #+#             */
-/*   Updated: 2017/11/25 13:29:05 by vmiron           ###   ########.fr       */
+/*   Updated: 2017/11/28 17:30:09 by vmiron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
-    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 	{
 		return (1);
 	}
-    return (0);
+	return (0);
 }

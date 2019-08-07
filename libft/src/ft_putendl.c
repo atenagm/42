@@ -6,14 +6,14 @@
 /*   By: vmiron <vmiron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 19:06:32 by vmiron            #+#    #+#             */
-/*   Updated: 2017/11/22 19:08:42 by vmiron           ###   ########.fr       */
+/*   Updated: 2017/11/28 18:14:48 by vmiron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void ft_putendl(char const *s)
+void	ft_putendl(char const *s)
 {
-    ft_putstr(s);
-    ft_putchar('\n');
+	ft_putstr(s);
+	ft_putchar('\n');
 }
